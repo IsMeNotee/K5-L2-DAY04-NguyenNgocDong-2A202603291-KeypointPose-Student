@@ -1,0 +1,43 @@
+{
+ "mssv": "2A202603291",
+ "ten": "NguyenNgocDong",
+ "pool_version": "d04-k5-v2",
+ "cvat_user": "IsMeNotee",
+ "project": "d04-keypoint",
+ "persons": [
+  "000000043968.jpg",
+  "000000211458.jpg",
+  "000000225138.jpg",
+  "000000294379.jpg",
+  "000000429594.jpg",
+  "000000090646.jpg",
+  "000000179201.jpg",
+  "000000324953.jpg",
+  "000000054909.jpg",
+  "000000297227.jpg",
+  "000000269462.jpg",
+  "000000309169.jpg"
+ ],
+ "faces": [
+  "face_147624.jpg",
+  "face_155465.jpg",
+  "face_92028.jpg",
+  "face_415073.jpg",
+  "face_436791.jpg",
+  "face_186226.jpg",
+  "face_255797.jpg",
+  "face_562485.jpg"
+ ],
+ "tasks": {
+  "persons": {
+   "task_id": 2758920,
+   "job_id": 4723622,
+   "task_name": "persons-NguyenNgocDong"
+  },
+  "faces": {
+   "task_id": 2758922,
+   "job_id": 4723623,
+   "task_name": "faces-NguyenNgocDong"
+  }
+ }
+}
