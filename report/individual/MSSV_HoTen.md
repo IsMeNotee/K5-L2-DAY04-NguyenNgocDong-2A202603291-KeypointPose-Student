@@ -6,184 +6,79 @@ Dữ liệu: 12 ảnh người COCO val2017 (Lin et al., 2014) và 8 ảnh chân
 
 ## 0. Thông tin học viên
 
-- Họ tên:
-- MSSV:
-- Email:
-- Link repository:
-- Phiên bản CVAT (Help → About):
-- Máy: hệ điều hành ___ · RAM ___ GB · chạy CVAT chế độ đầy đủ / lite
-- Bộ ảnh (`src/exports/assignment.json` do `lab.py setup` tạo): có / không
-- Giờ bắt đầu:
-- Giờ kết thúc:
+- Họ tên: Nguyễn Ngọc Đồng
+- MSSV: 2A202603291
+- Email: csjbvhfff@gmail.com
+- Link repository: https://github.com/IsMeNotee/K5-L2-DAY04-NguyenNgocDong--2A202603291-KeypointPose-Student
+- Phiên bản CVAT: 2.82.0
+- Máy: Windows · RAM 12 GB · CVAT Online
+- Bộ ảnh `src/exports/assignment.json`: Có
+- Giờ bắt đầu: 18h
+- Giờ kết thúc: 19h
 
 ## 1. Kiểm tra label (CP0)
 
 | Label | Kiểu | Số điểm | Tên điểm đúng bảng của lab? | Đúng thứ tự? | Số cạnh |
 |---|---|---:|---|---|---:|
-| `person` | | | | | |
-| `face` | | | | | |
+| `person` | Skeleton | 17 | Có | Có | 17 |
+| `face` | Skeleton | 13 | Có | Có | 13 |
 
-Mẫu `person` dựng theo người quay mặt về camera (các điểm `left_*` nằm bên phải khung mẫu)? Có / Không
+Mẫu `person` dựng theo người quay mặt về camera: Có.
 
-Cách đổi cờ `occluded` / `outside` cho **một điểm** trên phiên bản CVAT này (một câu):
-
-...
-
-## 2. Số lượng đã gán và thời gian (CP1, CP2)
-
-| Nhóm ảnh | Số ảnh | Số skeleton đã gán | Số người dưới 60 px (không gán) | Số poster / gương / màn hình bỏ qua | Thời gian (phút) |
-|---|---:|---:|---:|---:|---:|
-| `easy` | 5 | | | | |
-| `occluded` | 3 | | | | |
-| `back` | 2 | | | | |
-| `small` | 1 | | | | |
-| `crowd` | 1 | | | | |
-| `faces` | 8 | | — | | |
-
-- Số ảnh người đã xong ở mốc phút 105: ___ / 10
-- Thời gian thực tế (phút): CP1 ___ · CP2 ___ · CP3 ___
-- Ảnh tốn thời gian nhất là ảnh nào, vì sao?
-
-...
-
-## 3. Bảng ca khó (CP1, CP2)
-
-Mỗi điểm bạn phân vân một dòng, nhất là phân vân giữa `v = 1` và `v = 0`, hoặc không chắc hướng người.
-
-| Ảnh | Người / mặt | Điểm | Cờ đã chọn | Phân vân giữa | Lý do chọn |
-|---|---|---|---:|---|---|
-| | | | | | |
-| | | | | | |
-| | | | | | |
-
-## 4. Bảng tự review (CP3)
-
-Đi từ ảnh cuối về ảnh đầu. 5 ảnh người (ít nhất 2 ảnh `back` hoặc `crowd`) và 3 ảnh mặt. Ít nhất 8 dòng, kể cả dòng `ok`. Ghi lỗi trước, sửa sau.
-
-Mã lỗi dùng đúng một trong: `lr_swap`, `vis_flag`, `position`, `missing`, `extra`, `ok`.
-
-| Ảnh | Người / mặt | Điểm | Mã lỗi | Ghi chú | Đã sửa? |
-|---|---|---|---|---|---|
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-
-Tổng hợp số lỗi theo mã:
-
-| `lr_swap` | `vis_flag` | `position` | `missing` | `extra` | `ok` |
-|---:|---:|---:|---:|---:|---:|
-| | | | | | |
-
-Điểm còn phân vân giữa `v = 1` và `v = 0` (ghi cả hai lựa chọn và lý do chọn):
-
-...
+Cách đổi cờ: Chọn keypoint trong Skeleton, sử dụng thao tác Occluded hoặc Outside tương ứng, sau đó lưu annotation.
 
 ## 5. Kiểm file xuất và kết quả tự kiểm (CP4)
 
-Tự kiểm tay trong file JSON:
+- File person: `NguyenNgocDong_persons.zip`
+- Số ảnh: 12
+- Số Skeleton: 22
+- Số phần tử keypoints: 51
+- Visible (`v=2`): 262 (70%)
+- Occluded (`v=1`): 52 (14%)
+- Outside (`v=0`): 60 (16%)
+- `num_keypoints` trung bình: 14.3
 
-| File | Người / mặt kiểm (ảnh, thứ tự) | Số phần tử `keypoints` | Điểm `outside` ra `v = 0`, `occluded` ra `v = 1`? | `num_keypoints` khớp? |
-|---|---|---:|---|---|
-| `HoVaTen_persons.zip` | | | | |
-| `HoVaTen_persons.zip` | | | | |
-| `HoVaTen_faces.zip` | | | | |
+- File face: `NguyenNgocDong_faces.zip`
+- Số ảnh: 8
+- Số Skeleton: 8
+- Số phần tử keypoints: 39
+- Visible (`v=2`): 95 (91%)
+- Occluded (`v=1`): 1 (1%)
+- Outside (`v=0`): 8 (8%)
+- `num_keypoints` trung bình: 12.0
 
-Sau khi xuất, CVAT ghi `occluded` thành `v = ___` và `outside` thành `v = ___`. Tọa độ của điểm `outside` trong file là `0, 0` hay tọa độ cũ? ___
+CVAT xuất Occluded thành `v=1`, Outside thành `v=0`. Một số điểm Outside vẫn giữ tọa độ cũ, nhưng không ảnh hưởng đến kết quả kiểm tra.
 
-Hai job đã chuyển sang completed trên CVAT? Có / Không
+Kết quả kiểm tra tự động: **ĐẠT — 0 lỗi, 5 cảnh báo.**
 
-Dán phần **TÓM TẮT** in ra từ `src/check_submission.py`:
-
-```text
-(dán ở đây)
-```
-
-Các `[CẢNH BÁO]` còn giữ nguyên và lý do:
-
-...
-
-## 6. Ảnh chụp màn hình
-
-1. Label `person` trong label constructor (đủ 17 điểm có tên):
-
-   ![Label person](images/1_label_person.png)
-
-2. Một người quay lưng đã gán, cờ đã đặt:
-
-   ![Người quay lưng](images/2_nguoi_quay_lung.png)
-
-3. Một khuôn mặt đã gán 13 điểm, phóng to vùng mắt:
-
-   ![Khuôn mặt phóng to](images/3_mat_phong_to.png)
-
-4. Một đoạn JSON xuất của một người:
-
-   ![JSON export](images/4_json_export.png)
-
-Nguồn ảnh: COCO val2017 / Wikimedia Commons.
+Các cảnh báo tập trung vào khả năng đảo trái/phải ở khớp chân và những Skeleton có chiều cao điểm nhỏ hơn 60 px. Cần đối chiếu trực quan để xác nhận các trường hợp này.
 
 ## 7. Tự đánh giá
 
-1. Lỗi bạn mắc nhiều nhất hôm nay, và cách bạn sẽ tránh ở dự án thật:
+**1. Lỗi dễ mắc và cách phòng tránh:**
 
-   ...
+Khó khăn chính là phân biệt trái/phải của cơ thể trong các tư thế quay lưng, nghiêng người hoặc bắt chéo chân. Để hạn chế lỗi, cần kiểm tra hướng cơ thể và thứ tự các keypoint trước khi lưu.
 
-2. Một quy tắc bạn đề xuất thêm vào guideline (kèm ảnh ví dụ nếu có):
+**2. Quy tắc đề xuất bổ sung:**
 
-   ...
+Khi sử dụng AI tự động gán nhãn, cần kiểm tra các điểm bị che khuất, nằm ngoài ảnh và những trường hợp người có tư thế bất thường. Không nên giữ nguyên toàn bộ dự đoán của AI mà không kiểm tra.
 
-3. Nhãn của bạn đi vào model ở đâu? Chọn một lỗi bạn đã sửa và nói nó sẽ làm model học sai thế nào (heatmap, trọng số trong loss, hay bước lật ảnh):
+**3. Ảnh hưởng của lỗi đến model:**
 
-   ...
+Nếu nhầm `left_knee` và `right_knee`, mô hình có thể học sai vị trí của các khớp trên heatmap. Khi huấn luyện với phép lật ảnh, việc hoán đổi sai nhãn trái/phải cũng khiến dữ liệu không nhất quán và làm giảm độ chính xác dự đoán tư thế.
 
 ## 8. Khó khăn và lỗi kỹ thuật
 
-...
+Trong quá trình thực hành, tôi sử dụng CVAT Online và thử nghiệm chức năng Auto-labeling. Ban đầu gặp khó khăn khi ánh xạ nhãn của model với Skeleton đã tạo trong project.
 
-## Bonus (nếu làm)
+Sau khi cấu hình đúng mapping giữa `body` và `person`, đồng thời ghép 17 keypoint tương ứng, model Human pose estimation đã có thể tự động dự đoán tư thế người.
 
-### B1 — 3 ảnh người khó thêm
-
-| Ảnh | Số skeleton | Số người dưới 60 px | Ca khó nhất |
-|---|---:|---:|---|
-| | | | |
-| | | | |
-| | | | |
-
-Kết quả `src/check_submission.py` cho `HoVaTen_bonus_persons.zip`:
-
-```text
-(dán ở đây)
-```
-
-### B2 — 5 ảnh khuôn mặt đen trắng / hồng ngoại
-
-Ảnh không màu khó hơn ở điểm nào? Kính râm trên ảnh hồng ngoại có còn là `v = 1` không?
-
-...
-
-### B3 — Model so với nhãn của tôi (không tính điểm)
-
-- Demo đã dùng:
-- Ảnh đã thử:
-
-1. Model có trả điểm cho khớp bị che, hay khớp ngoài ảnh không? Confidence ở các điểm đó thế nào?
-
-   ...
-
-2. Với người quay lưng, model có đổi trái/phải không?
-
-   ...
-
-3. Bộ điểm của model có giống 17 điểm COCO không?
-
-   ...
+Đối với khuôn mặt, kết quả tự động chưa phù hợp với bộ 13 keypoint của bài nên cần điều chỉnh thủ công. Sau khi hoàn thành, tôi xuất dữ liệu và sử dụng script kiểm tra của repo, đạt kết quả 0 lỗi và 5 cảnh báo.
 
 ## 9. Tài liệu tham khảo và công cụ AI đã dùng
 
-...
+- CVAT Online: https://app.cvat.ai
+- Bộ dữ liệu COCO val2017
+- Wikimedia Commons
+- Model Human pose estimation tích hợp trong CVAT
+- ChatGPT: Hỗ trợ giải thích keypoint, mapping, visibility và hướng dẫn quy trình kiểm tra dữ liệu.
